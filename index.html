@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>砂時計シミュレーター</title>
+    
+    <!-- Matter.js（物理演算） -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
+    
+    <!-- Firebase（フィードバック用） -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    
+    <!-- フィードバックシステム -->
+    <script src="feedback-system.js"></script>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- バージョン表示 -->
+        <span class="version-badge">v0.1</span>
+        
+        <h1>⏳ 砂時計シミュレーター</h1>
+        
+        <!-- 砂時計表示エリア -->
+        <div id="sandglass-container">
+            <canvas id="sandglass-canvas"></canvas>
+        </div>
+        
+        <!-- コントロールパネル -->
+        <div class="controls">
+            <button onclick="flipSandglass()">🔄 反転</button>
+            <button onclick="resetSandglass()">🔁 リセット</button>
+            <div class="timer">
+                <span>経過時間: </span>
+                <span id="timer-display">00:00</span>
+            </div>
+        </div>
+        
+        <!-- ステータス表示 -->
+        <div class="status">
+            <div>砂の粒子数: <span id="particle-count">0</span></div>
+            <div>FPS: <span id="fps-display">60</span></div>
+        </div>
+    </div>
+    
+    <script src="sandglass.js"></script>
+</body>
+</html>
